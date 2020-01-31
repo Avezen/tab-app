@@ -1,5 +1,6 @@
 import React, {ChangeEvent, useState} from "react";
 import {DropdownItem} from "./DropdownItem";
+import styles from "./Dropdown.module.css";
 
 interface DropdownProps {
     toggled: boolean;
@@ -14,17 +15,21 @@ interface DropdownProps {
 export const Dropdown = ({toggled, toggleDropdown, dropdownSearch, dropdownItems, onChange, inputItems}: DropdownProps) => {
 
     return (
-        <React.Fragment>
+        <div className={styles.dropdownWrapper}>
             <button
+                className={styles.dropdownButton}
                 onClick={() => toggleDropdown(!toggled)}
             >
                 Dropdown
             </button>
             <div
-                style={{display: toggled ? 'block' : 'none'}}
+                className={styles.dropdown}
+                style={{display: toggled ? 'flex' : 'none'}}
             >
                 <input
                     type={'text'}
+                    className={styles.dropdown__input}
+                    placeholder={'Search...'}
                     onChange={dropdownSearch}
                 />
                 <ul>
@@ -41,6 +46,6 @@ export const Dropdown = ({toggled, toggleDropdown, dropdownSearch, dropdownItems
                         ))}
                 </ul>
             </div>
-        </React.Fragment>
+        </div>
     );
 };

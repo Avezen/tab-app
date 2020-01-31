@@ -5,6 +5,7 @@ import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import {GLOBAL_ROUTES} from "./constans/routerConfig";
 import {flattenMessages} from "./helpers/flattenMessages";
 import {messages} from "./constans/messages";
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

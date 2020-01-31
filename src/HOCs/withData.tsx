@@ -11,8 +11,7 @@ export function withData(
 ) {
   return class extends React.Component {
       state = {
-          fetchedData: [],
-          isLoading: true,
+          isLoading: false,
       };
 
       // componentDidMount() {
@@ -41,13 +40,14 @@ export function withData(
       onFetchFailure = () => {
           this.setState({
               isLoading: false,
+              error: true,
           });
       };
 
       render() {
           return <WrappedComponent
               {...this.props}
-              data={this.state.fetchedData}
+              data={this.state}
               fetchData={this.fetchData}
           />
       }

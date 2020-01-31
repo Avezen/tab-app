@@ -1,17 +1,24 @@
 import React from 'react';
 import {FormattedMessage} from "react-intl";
 import {withHelmet} from "../HOCs/withHelmet";
-import FindRecipe from "../containers/FindRecipeContainer";
+import SearchRecipe from "../components/SearchRecipe/SearchRecipeContainer";
+import {Col, Container, Row} from "react-bootstrap";
 
 const MainPageBase = () => {
 
     return (
-        <div>
-            <h1>
-                <FormattedMessage id="mainPage.pageTitle"/>
-            </h1>
-            <FindRecipe />
-        </div>
+        <Container>
+            <Row>
+                <h1>
+                    <FormattedMessage id="mainPage.pageTitle"/>
+                </h1>
+            </Row>
+            <Row>
+                <Col lg={12}>
+                    <SearchRecipe />
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

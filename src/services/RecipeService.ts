@@ -197,6 +197,6 @@ export const fetchRecipes = (ingredients: any[]) => {
             clearTimeout(wait);
             resolve(sortedCategoryItems);
             reject('Wrong')
-        }, 1)
+        }, 1000)
     });
 };

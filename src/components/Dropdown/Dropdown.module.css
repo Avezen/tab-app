@@ -1,0 +1,17 @@
+.dropdownWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdownButton {
+    width: 200px;
+}
+
+.dropdown {
+    flex-direction: column;
+}
+
+.dropdown__input {
+
+}
