@@ -1,21 +1,25 @@
 import React, {ChangeEvent, useState} from "react";
-import {DropdownItem} from "./DropdownItem";
 import {Dropdown} from "./Dropdown";
 
 interface DropdownContainerProps {
     inputItems: string[];
     setInputItems: any;
+    closedForm: any;
 }
 
 const dropdownItems = ['onions', 'pepperoni', 'mushroom', 'garlic'];
 
-const DropdownContainer = ({inputItems, setInputItems}: DropdownContainerProps) => {
+const DropdownContainer = ({inputItems, setInputItems, closedForm}: DropdownContainerProps) => {
     const [toggled, toggleDropdown] = useState(false);
     const [searchValue, setSearchValue] = useState('');
 
     const dropdownSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchValue(e.target.value)
     };
+
+    if(closedForm && toggled){
+        toggleDropdown(false);
+    }
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.persist();

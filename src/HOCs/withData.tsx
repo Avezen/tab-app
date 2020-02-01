@@ -19,7 +19,6 @@ export function withData(
       // }
 
       fetchData = (data: string[]) => {
-          console.log(data);
           this.setState(
               {isLoading: true, fetchedData: []},
               () =>

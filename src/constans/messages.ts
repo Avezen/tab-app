@@ -2,6 +2,17 @@ export const messages = {
     pl: {
         navigation: {
             dashboard: 'pl'
+        },
+        mainPage: {
+            pageTitle: "Znajdź swój ulubiony przepis!",
+            fetchingError: "Wystąpił błąd przy pobieraniu danych. Spróbuj ponownie.",
+            notFound: "Nie znaleziono :( Spróbuj ponownie.",
+            findFromList: "Wybierz z listy",
+            close: "Zamknij",
+            search: "Szukaj przepisów",
+            openRecipe: "Zobacz przepis",
+            searchPlaceholder: "Szukaj...",
+            inputPlaceholder: "onions,pepperoni",
         }
     },
     en: {
@@ -9,7 +20,15 @@ export const messages = {
             dashboard: 'en',
         },
         mainPage: {
-            pageTitle: "Main Page"
+            pageTitle: "Find your favourite recipe!",
+            fetchingError: "Error while fetching data...",
+            notFound: "Not found",
+            findFromList: "Choose from list",
+            close: "Close",
+            search: "Find recipes",
+            openRecipe: "Open recipe",
+            searchPlaceholder: "Search...",
+            inputPlaceholder: "onions,pepperoni",
         }
     }
 

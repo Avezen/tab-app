@@ -1,27 +1,47 @@
 import React from 'react';
-import {FormattedMessage} from "react-intl";
 import {withHelmet} from "../HOCs/withHelmet";
-import SearchRecipe from "../components/SearchRecipe/SearchRecipeContainer";
-import {Col, Container, Row} from "react-bootstrap";
+import SearchRecipeForm from "../components/SearchRecipe/SearchRecipeFormContainer";
+import {withData, WithDataProps} from "../HOCs/withData";
+import {fetchRecipes} from "../services/RecipeService";
+import {SearchRecipeList} from "../components/SearchRecipe/SearchRecipeList";
+import {MainLayout} from "../layouts/MainLayout";
+import {FormattedMessage} from "react-intl";
 
-const MainPageBase = () => {
+const MainPageBase = ({data, fetchData}: WithDataProps) => (
+    <React.Fragment>
+        <MainLayout
+            form={
+                <SearchRecipeForm
+                    fetchData={fetchData}
+                />
+            }
+            content={
+                !data.fetchedData ? (
+                    <React.Fragment/>
+                ) : data.isLoading ? (
+                    <div>
+                        Loading...
+                    </div>
+                ) : data.error ? (
+                    <div>
+                        <FormattedMessage id="mainPage.fetchingError"/>
+                    </div>
+                ) : data.fetchedData.length > 0 ? (
+                    <SearchRecipeList
+                        fetchData={fetchData}
+                        data={data.fetchedData}
+                    />
+                ) : (
+                    <div>
+                        <FormattedMessage id="mainPage.notFound"/>
+                    </div>
+                )
+            }
+        />
+    </React.Fragment>
+);
 
-    return (
-        <Container>
-            <Row>
-                <h1>
-                    <FormattedMessage id="mainPage.pageTitle"/>
-                </h1>
-            </Row>
-            <Row>
-                <Col lg={12}>
-                    <SearchRecipe />
-                </Col>
-            </Row>
-        </Container>
-    );
-};
 
-
-export const MainPage = withHelmet(MainPageBase);
+export const MainPageWithHelmet = withHelmet(MainPageBase);
+export const MainPage = withData(MainPageWithHelmet, fetchRecipes);
 

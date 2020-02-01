@@ -22,7 +22,7 @@ class App extends Component {
         );
 
         return (
-            <IntlProvider locale="en" messages={flattenMessages(messages['en'])}>
+            <IntlProvider locale="pl" messages={flattenMessages(messages['pl'])}>
                 <Router>
                     <Switch>
                         {routeComponents}

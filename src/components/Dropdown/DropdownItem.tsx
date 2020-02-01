@@ -8,15 +8,17 @@ interface DropdownItemProps {
 }
 
 export const DropdownItem = ({ingredient, onChange, checked}: DropdownItemProps) => (
-    <div>
+    <React.Fragment>
         <input
             id={ingredient}
             type={'checkbox'}
             checked={checked}
             onChange={onChange}
         />
-        <label htmlFor={ingredient}>
+        <label
+            htmlFor={ingredient}
+        >
             {ingredient}
         </label>
-    </div>
+    </React.Fragment>
 );

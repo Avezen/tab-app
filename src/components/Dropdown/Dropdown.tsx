@@ -1,6 +1,6 @@
-import React, {ChangeEvent, useState} from "react";
+import React from "react";
 import {DropdownItem} from "./DropdownItem";
-import styles from "./Dropdown.module.css";
+import {FormattedMessage, useIntl} from "react-intl";
 
 interface DropdownProps {
     toggled: boolean;
@@ -13,23 +13,26 @@ interface DropdownProps {
 
 
 export const Dropdown = ({toggled, toggleDropdown, dropdownSearch, dropdownItems, onChange, inputItems}: DropdownProps) => {
+    const intl = useIntl();
 
     return (
-        <div className={styles.dropdownWrapper}>
+        <div
+            className={'dropdown-wrapper'}
+        >
             <button
-                className={styles.dropdownButton}
+                className={'main-button'}
                 onClick={() => toggleDropdown(!toggled)}
             >
-                Dropdown
+                {toggled ? <FormattedMessage id="mainPage.close"/> : <FormattedMessage id="mainPage.findFromList"/>}
             </button>
             <div
-                className={styles.dropdown}
+                className={'dropdown'}
                 style={{display: toggled ? 'flex' : 'none'}}
             >
                 <input
                     type={'text'}
-                    className={styles.dropdown__input}
-                    placeholder={'Search...'}
+                    className={'dropdown__input'}
+                    placeholder = {intl.formatMessage({ id: 'mainPage.searchPlaceholder' })}
                     onChange={dropdownSearch}
                 />
                 <ul>
