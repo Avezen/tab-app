@@ -2,9 +2,10 @@
 import axios from 'axios';
 
 const AppAPI = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'https://www.songsterr.com/a',
 });
 
 
 
-export const fetchRecipes = (ingredients: any[]) => AppAPI.get(`/?i=${ingredients.join(',')}`);
+export const fetchSongs = (search: string) => AppAPI.get(`/ra/songs.json?pattern=${search}`);
+export const fetchSongTabs = (id: number[], inst: string) => AppAPI.get(`/wa/song?id=${id}&inst=${inst}`);

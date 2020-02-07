@@ -4,15 +4,11 @@ export const messages = {
             dashboard: 'pl'
         },
         mainPage: {
-            pageTitle: "Znajdź swój ulubiony przepis!",
+            pageTitle: "Wyszukiwarka tabulatur",
             fetchingError: "Wystąpił błąd przy pobieraniu danych. Spróbuj ponownie.",
             notFound: "Nie znaleziono :( Spróbuj ponownie.",
-            findFromList: "Wybierz z listy",
-            close: "Zamknij",
-            search: "Szukaj przepisów",
-            openRecipe: "Zobacz przepis",
-            searchPlaceholder: "Szukaj...",
-            inputPlaceholder: "onions,pepperoni",
+            search: "Szukaj",
+            inputPlaceholder: "Wpisz nazwę zespołu i/lub nazwę utworu",
         }
     },
     en: {
@@ -20,15 +16,12 @@ export const messages = {
             dashboard: 'en',
         },
         mainPage: {
-            pageTitle: "Find your favourite recipe!",
+            pageTitle: "Tab finder",
             fetchingError: "Error while fetching data...",
             notFound: "Not found",
-            findFromList: "Choose from list",
-            close: "Close",
-            search: "Find recipes",
-            openRecipe: "Open recipe",
+            search: "Search",
             searchPlaceholder: "Search...",
-            inputPlaceholder: "onions,pepperoni",
+            inputPlaceholder: "Band name or/and track title",
         }
     }
 

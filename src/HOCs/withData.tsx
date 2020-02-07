@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 export interface WithDataProps {
-    data: any;
-    fetchData: any;
+    data?: any;
+    fetchData?: any;
 }
 
 export function withData(
@@ -30,7 +30,7 @@ export function withData(
           );
       };
 
-      onFetchSuccess = (data: any) => {
+      onFetchSuccess = ({data}: any) => {
           const fetchedData = (data || []);
 
           this.setState({fetchedData, isLoading: false});

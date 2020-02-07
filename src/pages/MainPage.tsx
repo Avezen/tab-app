@@ -1,17 +1,19 @@
 import React from 'react';
 import {withHelmet} from "../HOCs/withHelmet";
-import SearchRecipeForm from "../components/SearchRecipe/SearchRecipeFormContainer";
+import SearchTabForm from "../components/SearchTab/SearchTabFormContainer";
 import {withData, WithDataProps} from "../HOCs/withData";
-import {fetchRecipes} from "../services/RecipeService";
-import {SearchRecipeList} from "../components/SearchRecipe/SearchRecipeList";
+import {TabList} from "../components/SearchTab/TabList";
 import {MainLayout} from "../layouts/MainLayout";
 import {FormattedMessage} from "react-intl";
+import {fetchSongs} from "../services/Api";
+import {Pagination} from "../wrappers/Pagination";
+import loader from "../assets/images/loader.svg"
 
 const MainPageBase = ({data, fetchData}: WithDataProps) => (
     <React.Fragment>
         <MainLayout
             form={
-                <SearchRecipeForm
+                <SearchTabForm
                     fetchData={fetchData}
                 />
             }
@@ -19,20 +21,32 @@ const MainPageBase = ({data, fetchData}: WithDataProps) => (
                 !data.fetchedData ? (
                     <React.Fragment/>
                 ) : data.isLoading ? (
-                    <div>
-                        Loading...
+                    <div
+                        className={'fetch-info'}
+                    >
+                        <img
+                            src={loader}
+                            alt={'loader'}
+                            width={30}
+                        />
                     </div>
                 ) : data.error ? (
-                    <div>
+                    <div
+                        className={'fetch-info'}
+                    >
                         <FormattedMessage id="mainPage.fetchingError"/>
                     </div>
                 ) : data.fetchedData.length > 0 ? (
-                    <SearchRecipeList
-                        fetchData={fetchData}
+                    <Pagination
                         data={data.fetchedData}
-                    />
+                        itemsPerPage={16}
+                    >
+                        <TabList />
+                    </Pagination>
                 ) : (
-                    <div>
+                    <div
+                        className={'fetch-info'}
+                    >
                         <FormattedMessage id="mainPage.notFound"/>
                     </div>
                 )
@@ -43,5 +57,5 @@ const MainPageBase = ({data, fetchData}: WithDataProps) => (
 
 
 export const MainPageWithHelmet = withHelmet(MainPageBase);
-export const MainPage = withData(MainPageWithHelmet, fetchRecipes);
+export const MainPage = withData(MainPageWithHelmet, fetchSongs);
 
