@@ -5,10 +5,12 @@ import {Col, Row} from "react-bootstrap";
 
 
 export const TabList = ({data}: WithDataProps) => (
-    <Row>
+    <Row
+        bsPrefix={'row m-0 w-100'}
+    >
         {data.map((item: RecipeItemProps, key: number) => (
             <Col
-                bsPrefix={'col-lg-6 p-3'}
+                bsPrefix={'col-lg-12 p-0'}
                 key={key}
             >
                 <TabItem

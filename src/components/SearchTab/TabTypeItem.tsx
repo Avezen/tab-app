@@ -1,4 +1,7 @@
 import React from "react";
+import {
+    isMobile
+} from "react-device-detect";
 
 interface TabTypeItem {
     id: number;
@@ -21,16 +24,21 @@ const tabTypesTranslate = {
 
 export const TabTypeItem = ({id, tabType}: TabTypeItem) => (
     <a
+        className={'tab-type-item'}
         href={`https://www.songsterr.com/a/wa/song?id=${id}&inst=${tabTypesInstTranslate[tabType]}`}
         target={'_blank'}
     >
-        <label>
-            {tabTypesTranslate[tabType]}
-        </label>
         <img
             src={`images/icons/${tabTypesInstTranslate[tabType]}.svg`}
             alt={`${tabTypesTranslate[tabType]}-icon`}
-            width={20}
+            width={25}
         />
+        {isMobile ? (
+            <React.Fragment/>
+            ) : (
+            <label>
+                {tabTypesTranslate[tabType]}
+            </label>
+        )}
     </a>
 );

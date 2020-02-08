@@ -9,17 +9,19 @@ interface MainLayoutProps {
 
 export const MainLayout = ({form, content}: MainLayoutProps) => (
     <React.Fragment>
-        <div className={styles.header}>
+        <div
+            className={styles.header}
+        >
             <Container>
                 {form}
             </Container>
         </div>
-        <Container>
-            <Row>
-                <div className={styles.content}>
-                    {content}
-                </div>
-            </Row>
-        </Container>
+        <div
+            className={styles.content}
+        >
+            <Container>
+                {content}
+            </Container>
+        </div>
     </React.Fragment>
 );

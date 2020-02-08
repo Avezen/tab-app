@@ -1,6 +1,11 @@
+.page-content {
+    padding: 1em;
+}
+
 .default-input {
     width: 100%;
     height: 2em;
+    padding: .5em;
 }
 
 .default-button {
@@ -22,7 +27,7 @@
     -moz-appearance: none;
 }
 
-.main-button:hover {
+.default-button:hover {
     background: #001ced;
 }
 
@@ -32,13 +37,13 @@
 }
 
 .search-tab-form {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 4em;
     text-align: center;
     padding: 1em;
-    background-color: white;
     overflow: hidden;
 
     transition: height 300ms;
@@ -63,15 +68,16 @@
 .tab-item {
     display: flex;
     flex-wrap: wrap;
-    border-radius: 8px;
-    background-color: white;
+    /*border-radius: 8px;*/
+    background-color: whitesmoke;
 
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .tab-item:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background-color: #e2e2e2;
+    /*box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);*/
 }
 
 .tab-item__item-image {
@@ -86,8 +92,18 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     padding: 1em;
+}
+
+.tab-item__item-info b {
+    font-size: 1.1em;
+    margin-bottom: .5em;
+}
+
+.item-info__tab-types {
+    display: flex;
+    align-items: center;
 }
 
 .item-info__tab-types a {
@@ -97,6 +113,17 @@
 .item-info__tab-types a label {
     cursor: pointer;
     margin-right: .5em;
+}
+
+.tab-type-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.tab-type-item label{
+    margin: 0 !important;
 }
 
 .item-info__button-container {
@@ -113,7 +140,7 @@
 
 .pagination__nav {
     display: flex;
-    margin-top: 3em;
+    margin-top: 2em;
 }
 
 .pagination__nav li {
@@ -148,10 +175,8 @@
         height: unset;
     }
 
-    .tab-item__item-image {
-        border-radius: 0;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+    .tab-item__item-info {
+        flex-direction: column;
     }
 
     .item-info__button-container {
@@ -160,5 +185,13 @@
 
     .pagination__nav li {
         width: 2em;
+    }
+
+    .item-info__tab-types {
+        margin-top: 1em;
+    }
+
+    .container {
+        padding: 0 !important;
     }
 }

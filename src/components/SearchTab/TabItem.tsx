@@ -1,5 +1,4 @@
 import React from "react";
-import {Col} from "react-bootstrap";
 import {TabTypeItem} from "./TabTypeItem";
 
 
@@ -25,11 +24,11 @@ export const TabItem = ({id, title, artist, tabTypes}: RecipeItemProps) => (
     <div
         className={'tab-item'}
     >
-        <Col
-            bsPrefix={'col-sm-12 p-0 h-100'}
+        <div
+            className={'tab-item__item-info'}
         >
             <div
-                className={'tab-item__item-info'}
+                className={'item-info__main'}
             >
                 <small>
                     {artist.name}
@@ -37,18 +36,18 @@ export const TabItem = ({id, title, artist, tabTypes}: RecipeItemProps) => (
                 <h5>
                     {title}
                 </h5>
-                <div
-                    className={'item-info__tab-types'}
-                >
-                    {tabTypes.map((tabType, key) => (
-                        <TabTypeItem
-                            key={key}
-                            id={id}
-                            tabType={tabType}
-                        />
-                    ))}
-                </div>
             </div>
-        </Col>
+            <div
+                className={'item-info__tab-types'}
+            >
+                {tabTypes.map((tabType, key) => (
+                    <TabTypeItem
+                        key={key}
+                        id={id}
+                        tabType={tabType}
+                    />
+                ))}
+            </div>
+        </div>
     </div>
 );

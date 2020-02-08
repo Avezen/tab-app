@@ -18,17 +18,21 @@ const MainPageBase = ({data, fetchData}: WithDataProps) => (
                 />
             }
             content={
-                <DefaultFetchRenderer
-                    data={data}
-                    component={
-                        <Pagination
-                            data={data.fetchedData}
-                            itemsPerPage={16}
-                        >
-                            <TabList/>
-                        </Pagination>
-                    }
-                />
+                <div
+                    className={'page-content'}
+                >
+                    <DefaultFetchRenderer
+                        data={data}
+                        component={
+                            <Pagination
+                                data={data.fetchedData}
+                                itemsPerPage={16}
+                            >
+                                <TabList/>
+                            </Pagination>
+                        }
+                    />
+                </div>
             }
         />
     </React.Fragment>
