@@ -14,7 +14,7 @@ export function withHelmet<T extends WithHelmetProps & WithDataProps>(
   return injectIntl(({ intl, ...props }: T & InjectedIntlProps) => (
     <React.Fragment>
       <FormattedMessage id={`${props.messagePrefix}.pageTitle`}>
-        {(title: any) => (
+        {(title: string) => (
           <Helmet>
             <title>
                 {title}

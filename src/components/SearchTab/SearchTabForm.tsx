@@ -1,5 +1,7 @@
 import React from "react"
-import {FormattedMessage, useIntl} from "react-intl";
+import {useIntl} from "react-intl";
+import {DefaultInput} from "../common/DefaultInput";
+import {DefaultButton} from "../common/DefaultButton";
 
 interface SearchRecipeFormProps {
     inputItem: string;
@@ -14,26 +16,28 @@ export const SearchTabForm = ({inputItem, setInputItem, updateInputItems, fetchD
 
     return (
         <div
-            className={`search-recipe-form`}
+            className={`search-tab-form`}
         >
-            <input
-                ref={inputRef}
-                type={'text'}
-                className={'search-recipe-form__input'}
-                placeholder={intl.formatMessage({id: 'mainPage.inputPlaceholder'})}
-                value={inputItem}
-                onKeyDown={fetchData(inputItem)}
-                onChange={updateInputItems}
-            />
             <div
-                className={'search-recipe-form__buttons-container'}
+                className={'search-tab-form__input'}
             >
-                <button
-                    className={'main-button search-recipe-form__button'}
+                <DefaultInput
+                    inputRef={inputRef}
+                    type={'text'}
+                    placeholder={intl.formatMessage({id: 'mainPage.inputPlaceholder'})}
+                    value={inputItem}
+                    onKeyDown={fetchData(inputItem)}
+                    onChange={updateInputItems}
+                />
+            </div>
+            <div
+                className={'search-tab-form__buttons-container'}
+            >
+                <DefaultButton
+                    className={'search-tab-form__button'}
+                    label={intl.formatMessage({id: 'mainPage.search'})}
                     onClick={fetchData(inputItem)}
-                >
-                    <FormattedMessage id="mainPage.search"/>
-                </button>
+                />
             </div>
         </div>
     );
